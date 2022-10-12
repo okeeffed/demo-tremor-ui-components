@@ -1,24 +1,70 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { AreaChart, BarChart, LineChart } from "@tremor/react";
+import { chartData, dataFormatter } from "./data";
+import "@tremor/react/dist/esm/tremor.css";
+
+const DemoAreaChart = () => (
+  <AreaChart
+    data={chartData}
+    categories={["SemiAnalysis", "The Pragmatic Engineer"]}
+    dataKey="date"
+    height="h-72"
+    colors={["indigo", "cyan"]}
+    valueFormatter={dataFormatter}
+    marginTop="mt-4"
+  />
+);
+const DemoBarChart = () => (
+  <BarChart
+    data={chartData}
+    categories={["SemiAnalysis", "The Pragmatic Engineer"]}
+    dataKey="date"
+    height="h-72"
+    colors={["indigo", "cyan"]}
+    valueFormatter={dataFormatter}
+    marginTop="mt-4"
+  />
+);
+const DemoLineChart = () => (
+  <LineChart
+    data={chartData}
+    categories={["SemiAnalysis", "The Pragmatic Engineer"]}
+    dataKey="date"
+    height="h-72"
+    colors={["indigo", "cyan"]}
+    valueFormatter={dataFormatter}
+    marginTop="mt-4"
+  />
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          width: "100vw",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        <DemoAreaChart />
+        <DemoBarChart />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          width: "100vw",
+          justifyContent: "center",
+        }}
+      >
+        <DemoLineChart />
+      </div>
     </div>
   );
 }
